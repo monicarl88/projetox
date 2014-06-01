@@ -1,0 +1,21 @@
+<h1>Bem Vindo!</h1>
+<p>Aplicativo das palavras proibidas pelo padrão FIFA</p>
+
+
+<% if @users.present? %>
+  <% @users.each do |user| %>
+    Email: <%= user.email %></br>
+    Twitter: <%= user.twitter %></br>
+    Github: <%= user.github %></br>
+    <hr>
+  <% end %>
+<% else %>
+  <% if current_user.present? %>
+  <%= current_user.email %><br>
+  <%= current_user.twitter %><br>
+  <%= current_user.github %><br>
+  <% else %>
+  <a href="http://localhost:3000/users/sign_up"><img src="http://www.marteloweb.com.br/img/btn_cadastre.gif"></a>
+<br>
+  <% end %>
+<% end %>
